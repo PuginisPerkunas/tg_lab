@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name">TG lab-task</string>
+    <string name="nav_title_home">Home</string>
+    <string name="nav_title_players">Players</string>
+
+    <string name="title_home">Home</string>
+    <string name="title_players">Players</string>
+
+    <string name="name">Name</string>
+    <string name="city">City</string>
+    <string name="conference">Conference</string>
+
+    <string name="first_name">First name</string>
+    <string name="last_name">Last name</string>
+    <string name="team">Team</string>
+
+    <string name="generic_error">No teams found, try again later</string>
+    <string name="try_again">Try again</string>
+
+    <string name="no_games">No recent games!</string>
+
+    <string name="name_surname">%1$s %2$s</string>
+
+    <string name="player_surname">Surname:</string>
+    <string name="player_name">Name:</string>
+    <string name="height_feet">Height feet:</string>
+    <string name="height_inches">Height inches:</string>
+    <string name="weight_pounds">Weight pounds:</string>
+    <string name="position">Position:</string>
+    <string name="player_team_full_name">Team:</string>
+    
+    <string name="inch_value">%1$s in</string>
+    <string name="weight_pounds_value">%1$s lb</string>
+    <string name="height_feet_value">%1$s ft</string>
+</resources>
