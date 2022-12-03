@@ -26,7 +26,7 @@ import androidx.paging.compose.itemsIndexed
 import com.example.tglab_task.R
 import com.example.tglab_task.ui.SearchBar
 import com.example.tglab_task.models.PlayerData
-import com.example.tglab_task.ui.DataCardV2
+import com.example.tglab_task.ui.DataCard
 import com.example.tglab_task.ui.DataHeader
 import com.example.tglab_task.ui.DataText
 import com.example.tglab_task.ui.ErrorOnContent
@@ -82,7 +82,7 @@ fun PlayersScreen(
                     if(index == 0) {
                         Spacer(modifier = Modifier.height(VERTICAL_SPACER_HEIGHT))
                     }
-                    DataCardV2(
+                    DataCard(
                         dataTexts = listOf(
                             DataText(player.first_name),
                             DataText(player.last_name),

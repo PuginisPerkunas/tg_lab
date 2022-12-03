@@ -18,18 +18,11 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.material3.TopAppBarScrollBehavior
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.tglab_task.R
-import com.example.tglab_task.ui.DataCard
-import com.example.tglab_task.ui.DataHeader
-import com.example.tglab_task.ui.ErrorOnContent
-import com.example.tglab_task.ui.Filter
-import com.example.tglab_task.ui.HomeFilterSwitch
-import com.example.tglab_task.ui.LoadingOnContent
+import com.example.tglab_task.ui.*
 import com.example.tglab_task.ui.theme.HORIZONTAL_CONTENT_PADDING_DP
 import com.example.tglab_task.ui.theme.VERTICAL_SPACER_HEIGHT
 
@@ -114,9 +107,18 @@ private fun ScreenContent(
         }
         items(teams, key = { it.teamId }) { team ->
             val dataTextMapped = listOf(
-                team.teamName,
-                team.teamCity,
-                team.teamConference
+                DataText(
+                    text = team.teamName,
+                    center = false
+                ),
+                DataText(
+                    text = team.teamCity,
+                    center = true
+                ),
+                DataText(
+                    text = team.teamConference,
+                    center = true
+                ),
             )
             DataCard(
                 dataTexts = dataTextMapped,

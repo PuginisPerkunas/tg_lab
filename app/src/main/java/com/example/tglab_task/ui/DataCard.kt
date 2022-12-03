@@ -34,7 +34,7 @@ data class DataText(
     val center: Boolean = false
 )
 @Composable
-fun DataCardV2(
+fun DataCard(
     dataTexts: List<DataText>,
     modifier: Modifier = Modifier,
     maxLines: Int = 1,
@@ -83,54 +83,6 @@ fun DataCardV2(
     }
 }
 
-@Composable
-fun DataCard(
-    dataTexts: List<String>,
-    modifier: Modifier = Modifier,
-    maxLines: Int = 1,
-    onClick: (() -> Unit)? = null
-) {
-    Card(
-        modifier = modifier.run {
-            if(onClick != null) {
-                this.clip(CardDefaults.shape).clickable { onClick() }
-            } else {
-                this
-            }
-        },
-        elevation = CardDefaults.cardElevation(defaultElevation = DATA_CARD_ELEVATION)
-    ) {
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(DATA_CARD_CONTENT_PADDING),
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            val weight = (1 % dataTexts.size).toFloat()
-            dataTexts.forEachIndexed { index, dataText ->
-                Text(
-                    text = dataText,
-                    modifier = Modifier.weight(weight),
-                    style = MaterialTheme.typography.bodyMedium,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    maxLines = maxLines,
-                    overflow = TextOverflow.Ellipsis,
-                )
-                if (index != dataText.lastIndex) {
-                    Spacer(modifier = Modifier.width(8.dp))
-                }
-            }
-            if(onClick != null){
-                Icon(
-                    imageVector = Icons.Default.KeyboardArrowRight,
-                    contentDescription = null
-                )
-            } else {
-                Spacer(modifier = Modifier.width(24.dp))
-            }
-        }
-    }
-}
 
 @Preview(showBackground = true)
 @Composable
@@ -143,27 +95,58 @@ private fun DataCardPreview() {
             Column(modifier = Modifier.padding(horizontal = HORIZONTAL_CONTENT_PADDING_DP)) {
                 DataCard(
                     dataTexts = listOf(
-                        "TeamName", "TeamCity", "Conference"
+                        DataText(
+                            text = "TeamName"
+                        ),
+                        DataText(
+                            text = "TeamCity"
+                        ),
+                        DataText(
+                            text = "Conference"
+                        ),
                     ),
                 )
                 Spacer(modifier = Modifier.height(VERTICAL_SPACER_HEIGHT))
                 DataCard(
                     dataTexts = listOf(
-                        "Second", "Secc", "East"
+                        DataText(
+                            text = "TeamName",
+                            center = true
+                        ),
+                        DataText(
+                            text = "TeamCity"
+                        ),
+                        DataText(
+                            text = "Conference",
+                            center = true
+                        ),
                     ),
                     onClick = {}
                 )
                 Spacer(modifier = Modifier.height(VERTICAL_SPACER_HEIGHT))
                 DataCard(
                     dataTexts = listOf(
-                        "Second", "Secc", "East", "Secc", "East"
-                    ),
-                    onClick = {}
-                )
-                Spacer(modifier = Modifier.height(VERTICAL_SPACER_HEIGHT))
-                DataCard(
-                    dataTexts = listOf(
-                        "Second", "Secc", "East", "Second", "Secc", "East",
+                        DataText(
+                            text = "TeamName",
+                            center = true
+                        ),
+                        DataText(
+                            text = "TeamCity"
+                        ),
+                        DataText(
+                            text = "TeamName",
+                            center = true
+                        ),
+                        DataText(
+                            text = "TeamCity"
+                        ),
+                        DataText(
+                            text = "TeamName",
+                            center = true
+                        ),
+                        DataText(
+                            text = "TeamCity"
+                        ),
                     ),
                     onClick = {}
                 )
